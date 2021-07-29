@@ -1,0 +1,862 @@
+@import "node_modules/css-reset-and-normalize/scss/reset-and-normalize"
+@import "var"
+@import "fonts"
+
+html, body
+    font-family: 'Poppins', 'sans-serif'
+    font-size: 10px
+
+body
+    &.menu__active
+        overflow: hidden
+
+a
+    text-decoration: none
+
+.fas
+    cursor: pointer
+
+.fab, .far
+    cursor: pointer
+
+.btn
+    cursor: pointer
+    outline: none
+    text-transform: uppercase
+    padding: 0
+    margin: 0
+    border: 0
+
+.default__btn
+    font-weight: 500
+    font-size: 1.8rem
+    line-height: 2.7rem
+    color: $white
+    background: $black
+    max-width: 14.7rem
+    width: 100%
+    height: 3.5rem
+    transition: $transition
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 0 .5rem
+
+    &:hover
+        background-color: $white
+        color: $black
+
+.default__title
+    font-weight: 700
+    font-size: 2rem
+    line-height: 3rem
+    color: $black
+    text-align: center
+    margin-bottom: 1.5rem
+
+.default__descr
+    font-weight: 400
+    font-size: 1.5rem
+    line-height: 2.2rem
+    color: $black
+    text-align: center
+
+.default-placeholder__image
+    max-width: 26.8rem
+    width: 100%
+
+    img
+        object-fit: cover
+        width: 100%
+        height: 100%
+
+.default__flex
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-wrap: wrap
+    margin: -1.5rem -1rem
+
+.default__card
+    max-width: 26.8rem
+    width: 100%
+    margin: 1.5rem 1rem
+    transition: $transition
+
+    &:hover
+        transform: translateY(-15px)
+
+.main__subtitle
+    font-weight: 300
+    font-size: 1.5rem
+    line-height: 2.2rem
+    color: $black
+    text-transform: uppercase
+    display: block
+    margin-bottom: .3rem
+
+.main__title
+    font-weight: 600
+    font-size: 1.5rem
+    line-height: 2.2rem
+    color: $black
+    text-transform: uppercase
+    display: block
+    margin-bottom: .3rem
+
+.main__price
+    font-weight: 400
+    font-size: 1.5rem
+    line-height: 2.2rem
+    color: $black
+
+    &--previous
+        text-decoration: line-through
+        margin-right: 3rem
+
+    &--actual
+        color: #cf2929
+
+.container
+    max-width: 1173px
+    width: 100%
+    margin: 0 auto
+    padding: 0 2rem
+
+
+.header
+    padding: 2rem 0 2.1rem 0
+
+    &-link__logo
+        width: 16.4rem
+        height: 4.2rem
+
+        @media screen and (max-width: 868px)
+            width: 13.5rem
+            height: 3.3rem
+            order: 1
+
+        img
+            object-fit: contain
+            width: 100%
+            height: 100%
+
+    &-wrap
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+        .header-nav
+
+            @media screen and (max-width: 868px)
+                display: none
+
+            .header-list
+                display: flex
+                align-items: center
+
+                &__item
+                    margin-right: 3rem
+                    border-bottom: 1px solid transparent
+                    position: relative
+
+                    &:after
+                        content: ''
+                        display: block
+                        width: 0
+                        height: 1px
+                        background: $black
+                        transition: width .4s
+
+                    &:hover:after
+                        width: 100%
+
+                    @media screen and (max-width: 1024px)
+                        margin-right: 2rem
+
+                    &:last-of-type
+                        margin-right: 0
+
+                &__link
+                    font-weight: 400
+                    color: $black
+                    font-size: 1.8rem
+                    line-height: 2.7rem
+                    text-transform: uppercase
+
+        .header-interaction
+            display: flex
+            align-items: center
+
+            @media screen and (max-width: 868px)
+                display: none
+
+            &__icon
+                margin-right: 3rem
+
+                &:last-of-type
+                    margin-right: 0
+
+    .header-mobile__menu
+
+        @media screen and (min-width: 868px)
+            display: none
+
+        .path1, .path2
+            stroke-dasharray: 104
+            stroke-dashoffset: -71
+            transition: 1s all ease
+
+        .cross
+            stroke-dashoffset: 68
+
+        .mline
+            stroke-dasharray: 41
+            stroke-dashoffset: -82
+            transition: 1s all ease
+
+        .hide
+            stroke-dasharray: 43
+            stroke-dashoffset: 130
+
+        .mobile__menu
+            position: fixed
+            width: 100vw
+            height: 100vh
+            top: 0
+            right: 0
+            left: 0
+            bottom: 0
+            background-color: #E7F5F8
+            overflow-x: hidden
+            overflow-y: auto
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            opacity: 0
+            visibility: hidden
+            transition: .6s ease all
+            z-index: 9999
+
+            &.menu__open
+                opacity: 1
+                visibility: visible
+                transition: .6s ease all
+
+            .menu-close__btn
+                position: absolute
+                right: 2rem
+                top: 2rem
+                background-color: transparent
+                padding: 0
+                margin: 0
+                border: none
+                outline: none
+
+            .header-list
+                text-align: center
+
+                &__item
+                    margin-bottom: 1.7rem
+
+                    &:last-of-type
+                        margin-bottom: 0
+
+                &__link
+                    font-weight: 400
+                    color: $black
+                    font-size: 2.2rem
+                    line-height: 2.7rem
+                    text-transform: uppercase
+
+            .header-interaction__mobile
+                display: flex
+                margin-top: 4rem
+
+                .header-interaction__icon
+                    margin-right: 5rem
+
+                    &:last-of-type
+                        margin-right: 0
+
+
+
+.presentation
+    background: url("../images/presentation-image.png") no-repeat center center
+    background-size: cover
+    width: 100%
+    min-height: 74.5rem
+    padding-bottom: 10.1rem
+    margin-bottom: 12.3rem
+
+    @media screen and (max-width: 868px)
+        min-height: auto
+        height: 100%
+        padding-bottom: 5.1rem
+
+    @media screen and (max-width: 540px)
+        background-position: 25% 100%
+        padding-bottom: 0
+        margin-bottom: 5rem
+
+    &-flex__wrap
+        display: flex
+        height: 100vh
+        align-items: flex-end
+        justify-content: flex-end
+
+        @media screen and (max-width: 868px)
+            height: 65vh
+            justify-content: center
+            align-items: center
+
+        .presentation-content
+
+            @media screen and (max-width: 540px)
+                text-align: center
+
+            &__subtitle
+                font-weight: 500
+                font-size: 1.8rem
+                line-height: 2.7rem
+                color: $black
+                text-transform: uppercase
+
+            &__title
+                font-weight: 700
+                font-size: 8rem
+                line-height: 12rem
+                color: $black
+                text-transform: uppercase
+
+                @media screen and (max-width: 540px)
+                    font-size: 3.5rem
+                    line-height: 6rem
+
+            &__descr
+                font-weight: 500
+                font-size: 1.8rem
+                line-height: 2.7rem
+                color: $black
+
+                @media screen and (max-width: 540px)
+                    font-size: 1.6rem
+
+            &__buttons
+                margin-top: 2.7rem
+                display: flex
+                align-items: center
+
+                @media screen and (max-width: 540px)
+                    flex-direction: column
+
+                .presentation-content__btn
+                    margin-right: 3.4rem
+
+                    @media screen and (max-width: 540px)
+                        margin: 0 0 2.5rem 0
+                        max-width: 100%
+
+                    &:last-of-type
+                        margin-right: 0
+
+
+.portfolio
+    margin-bottom: 11.4rem
+
+    @media screen and (max-width: 540px)
+        margin-bottom: 5rem
+
+    .portfolio-grid__wrap
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr))
+        grid-column-gap: 3rem
+        grid-row-gap: 2.2rem
+
+        @media screen and (max-width: 1024px)
+            grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr))
+
+        @media screen and (max-width: 868px)
+            grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr))
+            grid-template-rows: repeat(2, 34rem)
+
+        .portfolio-card
+            position: relative
+            cursor: pointer
+
+            &:nth-child(1)
+                grid-column: span 2
+
+            &:nth-child(2)
+                grid-row: span 2
+                grid-column: span 2
+
+                @media screen and (max-width: 868px)
+                    grid-row: auto
+
+            &:nth-child(3),
+            &:nth-child(4)
+
+                @media screen and (max-width: 868px)
+                    grid-column: span 2
+
+            img
+                object-fit: cover
+                width: 100%
+                height: 100%
+
+            &:hover > .portfolio-card__hover
+                opacity: 1
+                visibility: visible
+
+            &__hover
+                position: absolute
+                width: 100%
+                height: 100%
+                top: 0
+                display: flex
+                align-items: flex-end
+                padding: 0 0 2.9rem 2.9rem
+                background-color: rgba(0, 0, 0, .5)
+                opacity: 0
+                visibility: hidden
+                transition: $transition
+
+                @media screen and (max-width: 1024px)
+                    padding: 0 0 2.9rem 0
+                    justify-content: center
+
+                .portfolio-card__hover--link
+                    font-size: 1.8rem
+                    line-height: 2.7rem
+                    max-width: 20.3rem
+                    width: 100%
+                    background-color: $white
+                    color: $black
+
+                    &:hover
+                        background-color: $black
+                        color: $white
+
+                    @media screen and (max-width: 1024px)
+                        font-size: 1.6rem
+                        max-width: 15rem
+
+.womens-fashion
+    margin-bottom: 11.1rem
+
+    @media screen and (max-width: 540px)
+        margin-bottom: 5rem
+
+    &__info
+        margin-bottom: 6.5rem
+
+    &__content
+        margin-top: 3.8rem
+
+
+.mans-fashion
+    margin-bottom: 11rem
+
+    @media screen and (max-width: 540px)
+        margin-bottom: 5rem
+
+    &__info
+        margin-bottom: 7.2rem
+
+    &__content
+        margin-top: 3.1rem
+
+
+.photo
+    margin-bottom: 12.1rem
+
+    @media screen and (max-width: 540px)
+        margin-bottom: 5rem
+
+    &-wrap
+        display: flex
+        margin-top: 6.1rem
+        overflow: hidden
+
+        .photo__placeholder-image
+            width: 100%
+            height: 100%
+
+
+            img
+                object-fit: cover
+                width: 100%
+                height: 100%
+                position: relative
+                z-index: 2
+
+        .photo-placeholder__link
+            font-weight: 400
+            font-size: 1.5rem
+            line-height: 2.2rem
+            color: $black
+            text-transform: uppercase
+            margin: 0 3.3rem 3rem 0
+            //border-bottom: 1px solid $black
+            padding-bottom: .4rem
+            height: max-content
+            align-items: flex-end
+            position: relative
+
+            &:after
+                content: ''
+                display: block
+                width: 100%
+                height: 1px
+                background: $black
+                transition: width .4s
+
+            &:hover:after
+                width: 0
+
+            @media screen and (max-width: 1024px)
+                font-size: 1.2rem
+                flex-shrink: 0
+
+            @media screen and (max-width: 600px)
+                margin: 0
+                position: absolute
+                left: -15rem
+                bottom: 0
+                z-index: 3
+
+        .photo__placeholder-image--first
+            margin-right: 2.9rem
+            align-self: flex-end
+            max-width: 55.2rem
+
+            @media screen and (max-width: 1024px)
+                align-self: center
+
+        .photo-wrap__content
+            display: flex
+            flex-direction: column
+            width: 100%
+
+        .photo-wrap__flex
+            display: flex
+            justify-content: flex-end
+            align-items: flex-end
+            width: 100%
+
+            @media screen and (max-width: 600px)
+                position: relative
+
+        .photo__placeholder-image--second
+            max-width: 51.4rem
+            height: 100%
+
+            @media screen and (max-width: 1024px)
+                max-width: 40rem
+
+        .photo__placeholder-image--third
+            display: flex
+            align-items: flex-end
+            max-width: 22.7rem
+            height: 100%
+            position: relative
+
+            &:before
+                content: ""
+                background-color: #fff
+                width: 100vw
+                height: 28.1rem
+                position: absolute
+                top: -2.2rem
+                z-index: 2
+                left: -2.5rem
+
+
+
+.presentation-shop
+    background: url("../images/presentation-shop-image.png") no-repeat 100% 50%
+    width: 100%
+    min-height: 74.5rem
+    background-size: cover
+    padding-bottom: 12.9rem
+
+    @media screen and (max-width: 868px)
+        min-height: auto
+        height: 100%
+        padding-bottom: 5.1rem
+
+    @media screen and (max-width: 540px)
+        background-position: 81% 100%
+        padding-bottom: 0
+        margin-bottom: 5rem
+
+    &__flex
+        min-height: 100vh
+        display: flex
+        align-items: flex-end
+
+        @media screen and (max-width: 868px)
+            height: 65vh
+            justify-content: center
+            align-items: center
+
+        .presentation-shop__content
+
+            @media screen and (max-width: 540px)
+                text-align: center
+                width: 100%
+
+            &-subtitle
+                font-weight: 500
+                font-size: 1.8rem
+                line-height: 2.7rem
+                color: $black
+                text-transform: uppercase
+
+            &-title
+                font-weight: 700
+                font-size: 8rem
+                line-height: 12rem
+                color: $black
+                text-transform: uppercase
+
+                @media screen and (max-width: 540px)
+                    font-size: 3.5rem
+                    line-height: 6rem
+
+            &-btn
+                max-width: 21.4rem
+
+                @media screen and (max-width: 540px)
+                    max-width: 100%
+
+.footer
+    background-color: $footerBg
+    padding-top: 11.5rem
+
+    @media screen and (max-width: 868px)
+        padding-top: 5rem
+
+    &-wrap
+        display: flex
+        justify-content: space-between
+        padding-bottom: 10.6rem
+
+        @media screen and (max-width: 868px)
+            flex-direction: column
+            padding-bottom: 5rem
+
+        .footer-left__side
+            display: flex
+            flex-direction: column
+            flex-basis: 40.6rem
+            margin-right: 3rem
+
+            @media screen and (max-width: 868px)
+                margin-right: 0
+                flex-basis: auto
+                margin-bottom: 3rem
+
+            @media screen and (max-width: 540px)
+                align-items: center
+                text-align: center
+
+            .footer-logo
+                margin-bottom: 1.7rem
+
+                img
+                    object-fit: contain
+                    width: 100%
+                    height: 100%
+
+                @media screen and (max-width: 868px)
+                    text-align: center
+
+                @media screen and (max-width: 540px)
+                    width: 13.5rem
+                    height: 3.3rem
+
+            .footer-text
+                margin-bottom: 4.1rem
+                text-align: left
+
+                @media screen and (max-width: 540px)
+                    text-align: center
+                    font-size: 1rem
+
+            .footer-feedback__list
+
+                .footer-feedback__item
+
+                    &:nth-child(1)
+                        margin-bottom: 1.6rem
+
+                    &:nth-child(2)
+                        margin-bottom: 1.6rem
+                    &:nth-child(3)
+                        margin-bottom: 1.6rem
+
+                    .footer-feedback__link
+                        font-weight: 400
+                        font-size: 1.5rem
+                        line-height: 2.2rem
+                        color: $black
+
+                        @media screen and (max-width: 540px)
+                            font-size: 1.2rem
+
+                    .footer-feedback__icon
+                        vertical-align: inherit
+
+                    .footer-feedback__link--location
+                        margin-left: 2.6rem
+
+                        @media screen and (max-width: 540px)
+                            margin-left: 1.5rem
+
+                    .footer-feedback__link--mail
+                        border-bottom: 1px solid #000000
+                        padding-bottom: .3rem
+
+            .footer-social
+                display: flex
+
+                .footer-social__item
+                    margin-right: 1.5rem
+
+                    &:last-of-type
+                        margin-right: 0
+
+                    .footer-social__link
+
+                        .fab
+                            color: #000000
+                            transition: $transition
+
+                            &:hover
+                                opacity: .4
+
+        .footer-right__side
+            display: flex
+            flex-direction: column
+            flex-basis: 53.3rem
+
+            @media screen and (max-width: 868px)
+                flex-basis: auto
+
+            .footer-subtitle
+                font-size: 2.5rem
+                line-height: 3.7rem
+                margin-bottom: 2.4rem
+                text-align: left
+
+                @media screen and (max-width: 868px)
+                    text-align: center
+
+                @media screen and (max-width: 540px)
+                    font-size: 2.2rem
+
+            .footer-mail__form
+                margin-bottom: 7rem
+                position: relative
+
+                input
+                    font-weight: 400
+                    font-size: 1.5rem
+                    line-height: 2.2rem
+                    color: $black
+                    padding: 1rem 2.4rem 1rem 2.4rem
+                    width: 100%
+                    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.07)
+                    border-radius: 5px
+                    border: none
+
+                    &::placeholder
+                        color: $black
+
+                .footer-form__btn
+                    position: absolute
+                    right: 2.3rem
+                    top: 50%
+                    transform: translateY(-50%)
+                    margin: 0
+                    padding: 0
+                    border: none
+                    background-color: transparent
+                    font-weight: 600
+                    font-size: 1.5rem
+                    line-height: 2.2rem
+                    color: $black
+                    text-transform: uppercase
+
+            .footer-nav
+                display: flex
+                justify-content: space-between
+                align-items: center
+
+                @media screen and (max-width: 400px)
+                    justify-content: center
+                    margin: 0 -1.2rem
+
+                &__list
+
+                    @media screen and (max-width: 540px)
+                        text-align: center
+
+                    @media screen and (max-width: 400px)
+                        margin: 0 1.2rem
+
+                &__subtitle
+                    font-weight: 600
+                    font-size: 2rem
+                    line-height: 3rem
+                    color: $black
+                    display: block
+
+                    @media screen and (max-width: 540px)
+                        font-size: 1.7rem
+                        line-height: 2rem
+
+                &__item
+                    margin-bottom: 2.1rem
+
+                    &:first-of-type
+                        margin-bottom: 2.7rem
+
+                    &:last-of-type
+                        margin-bottom: 0
+
+                &__link
+                    font-weight: 400
+                    font-size: 1.5rem
+                    line-height: 2.2rem
+                    color: $black
+
+                    @media screen and (max-width: 540px)
+                        font-size: 1.2rem
+                        line-height: 1.6rem
+
+                    @media screen and (max-width: 400px)
+                        font-size: 1rem
+                        white-space: nowrap
+
+    .footer-copyright
+        padding: 3.5rem 0
+        background-color: #E7F5F8
+        text-align: center
+
+        @media screen and (max-width: 540px)
+            padding: 2rem
+
+        &__descr
+            font-weight: 400
+            font-size: 1.5rem
+            line-height: 2.2rem
+            color: $black
+
+            @media screen and (max-width: 540px)
+                font-size: 1rem
+
+
